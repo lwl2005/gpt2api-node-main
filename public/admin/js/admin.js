@@ -1339,10 +1339,10 @@ function showImportTokenModal() {
 }
 function closeImportModal() {
   closeModal('importTokenModal');
-  document.getElementById('tokenFileInput').value = '';
-  document.getElementById('tokenJsonContent').value = '';
-  document.getElementById('importPreview').classList.add('hidden');
-  document.getElementById('fileStatus').textContent = '';
+  const fi = document.getElementById('tokenFileInput'); if (fi) fi.value = '';
+  const tj = document.getElementById('tokenJsonContent'); if (tj) tj.value = '';
+  const ip = document.getElementById('importPreview'); if (ip) ip.classList.add('hidden');
+  const fs = document.getElementById('fileStatus'); if (fs) fs.textContent = '';
   importData = null;
   importCheckResult = null;
 }
