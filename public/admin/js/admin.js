@@ -1473,8 +1473,8 @@ async function previewImport() {
 
 async function handleImportTokens() {
   if (!importData?.length) { toast('请先预览', 'warning'); return; }
-  const skipDup = document.getElementById('importSkipDup').checked;
-  const updateDup = document.getElementById('importUpdateDup').checked;
+  const skipDup = document.getElementById('importSkipDup')?.checked ?? true;
+  const updateDup = document.getElementById('importUpdateDup')?.checked ?? false;
   try {
     const data = await fetch('/admin/tokens/import', {
       method: 'POST',
