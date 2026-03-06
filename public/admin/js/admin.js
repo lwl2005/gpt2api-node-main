@@ -1342,8 +1342,7 @@ function closeImportModal() {
   document.getElementById('tokenFileInput').value = '';
   document.getElementById('tokenJsonContent').value = '';
   document.getElementById('importPreview').classList.add('hidden');
-  const fileStatusEl = document.getElementById('fileStatus');
-  if (fileStatusEl) fileStatusEl.textContent = '';
+  document.getElementById('fileStatus').textContent = '';
   importData = null;
   importCheckResult = null;
 }
@@ -1368,7 +1367,7 @@ async function handleFileSelect(event) {
     const ext = f.name.split('.').pop().toLowerCase();
     if (ext === 'zip') {
       try {
-        if (statusEl) statusEl.textContent = `正在解压 ${f.name}...`;
+        statusEl.textContent = `正在解压 ${f.name}...`;
         const zip = await JSZip.loadAsync(f);
         let jsonCount = 0;
         for (const [name, entry] of Object.entries(zip.files)) {
@@ -1381,9 +1380,9 @@ async function handleFileSelect(event) {
             jsonCount++;
           } catch {}
         }
-        if (statusEl) statusEl.textContent = `${f.name}: 解压到 ${jsonCount} 个 JSON 文件`;
+        statusEl.textContent = `${f.name}: 解压到 ${jsonCount} 个 JSON 文件`;
       } catch (e) {
-        if (statusEl) statusEl.textContent = `${f.name} 解压失败: ${e.message}`;
+        statusEl.textContent = `${f.name} 解压失败: ${e.message}`;
         toast(`ZIP 解压失败: ${e.message}`, 'error');
       }
     } else {
@@ -1398,9 +1397,9 @@ async function handleFileSelect(event) {
 
   if (all.length > 0) {
     document.getElementById('tokenJsonContent').value = JSON.stringify(all, null, 2);
-    if (statusEl) statusEl.textContent = `已读取 ${all.length} 条数据，点击"预览"查看详情`;
+    statusEl.textContent = `已读取 ${all.length} 条数据，点击"预览"查看详情`;
   } else {
-    if (statusEl) statusEl.textContent = '未找到有效的 JSON 数据';
+    statusEl.textContent = '未找到有效的 JSON 数据';
   }
 }
 
