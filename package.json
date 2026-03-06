@@ -1,0 +1,33 @@
+{
+  "name": "gpt2api-node",
+  "version": "1.0.0",
+  "description": "OpenAI Codex reverse proxy with admin management system",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "init-db": "node src/scripts/initDatabase.js"
+  },
+  "keywords": [
+    "openai",
+    "codex",
+    "proxy",
+    "api",
+    "admin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^12.6.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "https-proxy-agent": "^7.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
