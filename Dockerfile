@@ -12,6 +12,6 @@ COPY . .
 
 RUN mkdir -p database
 
-EXPOSE 3000
+EXPOSE 6666
 
 CMD ["npm", "start"]
