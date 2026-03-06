@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -1181,6 +1182,11 @@
         </div>
         <div id="importPreview" class="hidden mb-4 p-3.5 bg-emerald-50 border border-emerald-100 rounded-xl">
           <p class="text-[11px] font-semibold text-emerald-700 mb-2">预览：将导入 <span id="importCount" class="font-bold">0</span> 个账户</p>
+          <div class="flex space-x-3 mb-2 text-[11px]">
+            <span id="importNewCount" class="text-emerald-600 font-semibold"></span>
+            <span id="importDupCount" class="text-amber-600 font-semibold"></span>
+            <span id="importInvalidCount" class="text-red-500 font-semibold"></span>
+          </div>
           <ul id="importList" class="text-[11px] text-emerald-600 space-y-0.5 max-h-32 overflow-y-auto"></ul>
         </div>
         <div class="mb-4 flex items-center space-x-5">
@@ -1230,6 +1236,6 @@
     </div>
   </div>
 
-  <script src="/admin/js/admin.js?v=20260306b"></script>
+  <script src="/admin/js/admin.js?v=20260306c"></script>
 </body>
 </html>

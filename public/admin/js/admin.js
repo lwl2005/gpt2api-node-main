@@ -1439,10 +1439,11 @@ async function previewImport() {
     const dupCount = importCheckResult?.duplicateCount || 0;
     const invCount = importCheckResult?.invalidCount || invalidInFile;
 
-    document.getElementById('importCount').textContent = validData.length;
-    document.getElementById('importNewCount').textContent = newCount + ' 新增';
-    document.getElementById('importDupCount').textContent = dupCount + ' 重复';
-    document.getElementById('importInvalidCount').textContent = invCount + ' 无效';
+    const setEl = (id, txt) => { const e = document.getElementById(id); if (e) e.textContent = txt; };
+    setEl('importCount', validData.length);
+    setEl('importNewCount', newCount + ' 新增');
+    setEl('importDupCount', dupCount + ' 重复');
+    setEl('importInvalidCount', invCount + ' 无效');
 
     const listEl = document.getElementById('importList');
     const displayItems = items.length > 0 ? items : importData.map((t, i) => ({

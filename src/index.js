@@ -44,7 +44,7 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public'), { maxAge: 0, etag: false }));
 
 let modelsList = [];
 try {
